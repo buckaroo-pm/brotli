@@ -1,0 +1,9 @@
+cxx_binary(
+  name = 'bro',
+  srcs = [
+    'bro.c',
+  ],
+  deps = [
+    '//:brotli',
+  ],
+)

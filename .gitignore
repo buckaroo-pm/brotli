@@ -15,3 +15,10 @@ __pycache__/
 *.txt.uncompressed
 *.bro
 *.unbro
+
+# Buck
+/buck-out/
+/.buckd/
+/buckaroo/
+.buckconfig.local
+BUCKAROO_DEPS
