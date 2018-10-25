@@ -1,0 +1,9 @@
+cxx_binary(
+  name = 'brotli', 
+  srcs = [
+    'brotli.c', 
+  ], 
+  deps = [
+    '//:brotli', 
+  ], 
+)

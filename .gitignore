@@ -16,3 +16,8 @@ __pycache__/
 *.txt.uncompressed
 *.br
 *.unbr
+
+# Buck
+.buckconfig.local
+/buck-out
+/.buckd
