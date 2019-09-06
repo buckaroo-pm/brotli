@@ -1,16 +1,4 @@
-compiler_flags = [
-  '--pedantic-errors',
-  '-Wall',
-  '-Wconversion',
-  '-Werror',
-  '-Wextra',
-  '-Wlong-long',
-  '-Wmissing-declarations',
-  '-Wmissing-prototypes',
-  '-Wno-strict-aliasing',
-  '-Wshadow',
-  '-Wsign-compare',
-]
+load('//:subdir_glob.bzl', 'subdir_glob')
 
 cxx_library(
   name = 'common',
@@ -24,7 +12,6 @@ cxx_library(
   srcs = glob([
     'common/*.c',
   ]),
-  compiler_flags = compiler_flags,
 )
 
 cxx_library(
@@ -37,7 +24,9 @@ cxx_library(
   srcs = glob([
     'dec/*.c',
   ]),
-  compiler_flags = compiler_flags,
+  deps = [
+    ':common',
+  ],
 )
 
 cxx_library(
@@ -50,7 +39,9 @@ cxx_library(
   srcs = glob([
     'enc/*.c',
   ]),
-  compiler_flags = compiler_flags,
+  deps = [
+    ':common',
+  ],
 )
 
 prebuilt_cxx_library(
@@ -60,7 +51,7 @@ prebuilt_cxx_library(
   exported_headers = subdir_glob([
     ('include/brotli', '*.h'),
   ]),
-  deps = [
+  exported_deps = [
     ':common',
     ':enc',
     ':dec',
